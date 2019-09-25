@@ -1,0 +1,128 @@
+* {
+    box-sizing: border-box;
+    transition: all 0.5s ease;
+}
+
+body {
+    background: #333 url("../images/GreatWallMilkyWay_Yu_1686.jpg") no-repeat center/cover;
+    color: #eee;
+    display: flex;
+        flex-flow: column;
+    font-family: "Roboto", Arial, Helvetica, sans-serif;
+    min-height: 100vh;
+}
+/* Basic font stuff */
+h1, h2, h3, button, #timer { 
+    font-family: "Vollkorn SC", Georgia, 'Times New Roman', Times, serif;
+}
+
+h1 { font-size: 3em; }
+h2 { font-size: 2.25em; }
+h3 { font-size: 1.5em; }
+
+/* Setting up wrap */
+    header *, main, footer p {
+        margin: 0 auto;
+        width: 90%;
+            max-width: 960px;
+    }
+
+/* Basic layout for the main sections */
+    header, footer {
+        border-style: solid;
+        border-image:linear-gradient(to left, #96E6E6 25%, #BE96E6 75%);
+        border-image-slice: 1;
+    }
+    header {
+        background: #222;
+        border-color: #96E6E6;
+        border-bottom-width: 0.3em;
+        padding: 1em;
+    }
+
+    main {
+        background: rgba(0, 0, 0, 0.5);
+        height: auto;
+            min-height: 10em;
+        margin: 2em auto;
+        padding: 2em;
+    }
+
+    footer {
+        background: #222;
+        border-color: #BE96E6;
+        border-top-width: 0.3em;
+        color: white;
+        margin-top: auto;
+            padding: 2em;
+        text-align: center;
+    }
+
+/* General styling */
+    .hide { display: none; }
+    button {
+        background: rgba(255, 255, 255, 0.6);
+        border: 1px solid white;
+        color: #222;
+        font-size: 2em;
+        padding: 0.5em 1em;
+        text-transform: uppercase;
+    }
+
+/* #start styling */
+    #start {
+        text-align: center;
+    }
+        #start button {
+            margin: 1em auto;
+        }
+
+/* #timer styling */
+    #timer {
+        border-bottom: 1px solid #444;
+        font-size: 2em;
+        margin: 0 auto;
+        padding-bottom: 1em;
+        text-align: center;
+    }
+
+/* #questions Styling */
+    fieldset {
+        background: rgba(255, 255, 255, 0.7);
+        margin: 1em auto;
+        padding: 1em;
+    }
+        fieldset legend {
+            float: left;
+            padding-right: 0.5em;
+        }
+        fieldset div {
+            display: flex;
+            flex-flow: row;
+            justify-content: space-between;
+        }
+        fieldset label {
+            padding: 1em;
+                padding-bottom: 0;
+            text-transform: capitalize;
+            width: 25%;
+        }
+
+/* #result Styling*/
+    #results {
+        margin-top: 2em;
+        text-align: center;
+    }
+        #results p {
+            margin: 1em auto;
+        }
+
+
+/* Media Queries */
+    @media (max-width: 640px) {
+        header { text-align: center;}
+        h1 {
+            font-size: 1.8em;
+        }
+        h2 { font-size: 1.2em;}
+    }
