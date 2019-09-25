@@ -6,30 +6,338 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto|Vollkorn+SC&display=swap" rel="stylesheet">
+
     <!-- Stylesheets -->
     <link rel="stylesheet" type="text/css" href="assets/css/reset.css"> 
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
     <!-- Title -->
-    <title>Trivia Game - Basic</title>
+    <title>Trivia Game - Advanced</title>
 </head>
 <body>
     <!-- Header -->
     <header>
-
+        <h1>Totally Trivial Trivia</h1>
+        <h2>Space Edition</h2>
     </header>
 
-    <!-- Article -->
-    <article>
+    <!-- Main -->
+    <main>
+        <!-- Start Button -->
+        <div id="start">
+            <button >Start</button>
+        </div>
 
-    </article>
+        <!-- Timer -->
+        <div id="timer" class="hide">
+            <p>Time Remaining:</p>
+            <span id="time">30</span> seconds
+        </div>
+
+        <!-- Form -->
+        <form id="questions" class="hide">
+            <!-- Amazing emmet code
+                fieldset*8>legend{Question $:}+p+div>(label[for=""]>input[type="radio" id="" name="" value=""])*4
+            -->
+            <fieldset>
+                <legend>Question 1:</legend>
+                <p></p>
+                <div>
+                    <label for="">
+                        <input 
+                            type="radio" 
+                            id="" 
+                            name="" 
+                            value="incorrect">
+                    </label>
+                    <label for="">
+                        <input 
+                            type="radio" 
+                            id="" 
+                            name="" 
+                            value="incorrect">
+                    </label>
+                    <label for="">
+                        <input 
+                            type="radio" 
+                            id="" 
+                            name="" 
+                            value="incorrect">
+                    </label>
+                    <label for="">
+                        <input 
+                            type="radio" 
+                            id="" 
+                            name="" 
+                            value="incorrect">
+                    </label>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>Question 2:</legend>
+                <p></p>
+                <div>
+                    <label for="">
+                        <input 
+                            type="radio" 
+                            id="" 
+                            name="" 
+                            value="incorrect">
+                    </label>
+                    <label for="">
+                        <input 
+                            type="radio" 
+                            id="" 
+                            name="" 
+                            value="incorrect">
+                    </label>
+                    <label for="">
+                        <input 
+                            type="radio" 
+                            id="" 
+                            name="" 
+                            value="incorrect">
+                    </label>
+                    <label for="">
+                        <input 
+                            type="radio" 
+                            id="" 
+                            name="" 
+                            value="incorrect">
+                    </label>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>Question 3:</legend>
+                <p></p>
+                <div>
+                    <label for="">
+                        <input 
+                            type="radio" 
+                            id="" 
+                            name="" 
+                            value="incorrect">
+                    </label>
+                    <label for="">
+                        <input 
+                            type="radio" 
+                            id="" 
+                            name="" 
+                            value="incorrect">
+                    </label>
+                    <label for="">
+                        <input 
+                            type="radio" 
+                            id="" 
+                            name="" 
+                            value="incorrect">
+                    </label>
+                    <label for="">
+                        <input 
+                            type="radio" 
+                            id="" 
+                            name="" 
+                            value="incorrect">
+                    </label>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>Question 4:</legend>
+                <p></p>
+                <div>
+                    <label for="">
+                        <input 
+                            type="radio" 
+                            id="" 
+                            name="" 
+                            value="incorrect">
+                    </label>
+                    <label for="">
+                        <input 
+                            type="radio" 
+                            id="" 
+                            name="" 
+                            value="incorrect">
+                    </label>
+                    <label for="">
+                        <input 
+                            type="radio" 
+                            id="" 
+                            name="" 
+                            value="incorrect">
+                    </label>
+                    <label for="">
+                        <input 
+                            type="radio" 
+                            id="" 
+                            name="" 
+                            value="incorrect">
+                    </label>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>Question 5:</legend>
+                <p></p>
+                <div>
+                    <label for="">
+                        <input 
+                            type="radio" 
+                            id="" 
+                            name="" 
+                            value="incorrect">
+                    </label>
+                    <label for="">
+                        <input 
+                            type="radio" 
+                            id="" 
+                            name="" 
+                            value="incorrect">
+                    </label>
+                    <label for="">
+                        <input 
+                            type="radio" 
+                            id="" 
+                            name="" 
+                            value="incorrect">
+                    </label>
+                    <label for="">
+                        <input 
+                            type="radio" 
+                            id="" 
+                            name="" 
+                            value="incorrect">
+                    </label>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>Question 6:</legend>
+                <p></p>
+                <div>
+                    <label for="">
+                        <input 
+                            type="radio" 
+                            id="" 
+                            name="" 
+                            value="incorrect">
+                    </label>
+                    <label for="">
+                        <input 
+                            type="radio" 
+                            id="" 
+                            name="" 
+                            value="incorrect">
+                    </label>
+                    <label for="">
+                        <input 
+                            type="radio" 
+                            id="" 
+                            name="" 
+                            value="incorrect">
+                    </label>
+                    <label for="">
+                        <input 
+                            type="radio" 
+                            id="" 
+                            name="" 
+                            value="incorrect">
+                    </label>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>Question 7:</legend>
+                <p></p>
+                <div>
+                    <label for="">
+                        <input 
+                            type="radio" 
+                            id="" 
+                            name="" 
+                            value="incorrect">
+                    </label>
+                    <label for="">
+                        <input 
+                            type="radio" 
+                            id="" 
+                            name="" 
+                            value="incorrect">
+                    </label>
+                    <label for="">
+                        <input 
+                            type="radio" 
+                            id="" 
+                            name="" 
+                            value="incorrect">
+                    </label>
+                    <label for="">
+                        <input 
+                            type="radio" 
+                            id="" 
+                            name="" 
+                            value="incorrect">
+                    </label>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>Question 8:</legend>
+                <p></p>
+                <div>
+                    <label for="">
+                        <input 
+                            type="radio" 
+                            id="" 
+                            name="" 
+                            value="incorrect">
+                    </label>
+                    <label for="">
+                        <input 
+                            type="radio" 
+                            id="" 
+                            name="" 
+                            value="incorrect">
+                    </label>
+                    <label for="">
+                        <input 
+                            type="radio" 
+                            id="" 
+                            name="" 
+                            value="incorrect">
+                    </label>
+                    <label for="">
+                        <input 
+                            type="radio" 
+                            id="" 
+                            name="" 
+                            value="incorrect">
+                    </label>
+                </div>
+            </fieldset>
+        </form>
+
+        <!-- Quiz results here -->
+        <section id="results" class="hide">
+            <h2>Time is up!</h2>
+            <p>Correct Answers: <span id="correct"></span></p>
+            <p>Incorrect Answers: <span id="incorrect"></span></p>
+            <p>Unanswered: <span id="unanswered"></span></p>
+        </section>
+    </main>
 
     <!-- Footer -->
     <footer>
-
+        <p>Created by Jasmine</p>
+        <!-- 
+            Also, this site has a really cool image I almost used 
+            http://sherwoodparkweather.com/nasa-landscapes-volume-4k-uhd-space-videos-nasa-news/
+        -->
     </footer>
 
     <!-- Scripts -->
+    <script
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous"></script>
     <script type="text/javascript" src="assets/javascript/app.js"></script>
 </body>
 </html>
