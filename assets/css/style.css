@@ -59,7 +59,18 @@ h3 { font-size: 1.5em; }
     }
 
 /* General styling */
-    .hide { display: none; }
+    .hide { 
+        display: none; 
+        /* Test this with translate */
+    }
+    .easeIn {
+        opacity: 1;
+        transform: translate(0,0);
+    }
+    .easeOut {
+        opacity: 0;
+        transform: translate(0, -100%);
+    }
     button {
         background: rgba(255, 255, 255, 0.6);
         border: 1px solid white;
