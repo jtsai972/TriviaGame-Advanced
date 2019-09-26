@@ -31,7 +31,7 @@ $( function() {
         $(this).addClass("hide");
 
         //unhiding
-        $("#timer").removeClass("hide dim");
+        $("#timer").removeClass("hide");
         $("#questions").removeClass("hide");
         qId.removeClass("hide");
         
@@ -60,6 +60,8 @@ $( function() {
 
 //Timer functions
 function startTimer() {
+    //Make sure the dim class isn't on the timer
+    $("#timer").removeClass("dim");
     //print the first time
     $("#time").text(time);
     timer = setInterval(printTime, 1000);
