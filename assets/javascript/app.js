@@ -37,11 +37,14 @@ $( function() {
         
         //timer
         startTimer();
+
+        //Setting nextTimer text
+        $("#results .timer p").text("Next question in:");
     });
 
     //When form is submitted
     $("#questions button").click( function() {
-        console.log("submitting form");
+        console.log("submitting question" + qNum);
 
         //submit form & prevent page refresh
         $("#questions").submit(function(e) {
@@ -161,6 +164,10 @@ function nextQuestion() {
         $("#start").removeClass("hide");
     }
 
+    if(qNum > qTotal-1) {
+        $("#results .timer p").text("Showing score in:");
+    }
+
     clearInterval(timerNext);
     clearTimeout(timeOutNext);
 }
@@ -183,10 +190,6 @@ function nextTimer() {
             }
         }, 1000
     );
-}
-
-function printNextTimer() {
-    
 }
 
 
