@@ -12,7 +12,7 @@ body {
     min-height: 100vh;
 }
 /* Basic font stuff */
-h1, h2, h3, button, #timer, #answer { 
+h1, h2, h3, button, #timer, #answer, #score { 
     font-family: "Vollkorn SC", Georgia, 'Times New Roman', Times, serif;
 }
 
@@ -131,6 +131,15 @@ h3 { font-size: 1.5em; }
             font-size: 1.5em;
             margin: 0.5rem auto;
         }
+
+/* #score Styling */
+    #score {
+        border-top: 1px solid #ccc;
+        text-align: center;
+        margin-top: 2em;
+        padding: 2em;
+            padding-top: 3em;
+    }
 
 
 /* Media Queries */
