@@ -101,10 +101,11 @@ function checkAnswers() {
         countUnanswered++;
     } else {
         if(checked === "correct") {
-            textResult = "Great Job!"
-            countCorrect++
+            textResult = "Great Job!";
+            countCorrect++;
         } else {
             textResult = "Sorry";
+            countIncorrect++;
         }
     }    
 
