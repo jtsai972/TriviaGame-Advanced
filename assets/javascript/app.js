@@ -98,6 +98,7 @@ function checkAnswers() {
     //console.log("Answered:" + answeredNum);
 
     if(answeredNum !== 1) {
+        textResult = "Sorry"
         countUnanswered++;
     } else {
         if(checked === "correct") {
