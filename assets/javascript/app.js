@@ -31,7 +31,7 @@ $( function() {
         $(this).addClass("hide");
 
         //unhiding
-        $("#timer").removeClass("hide");
+        $("#timer").removeClass("hide dim");
         $("#questions").removeClass("hide");
         qId.removeClass("hide");
         
@@ -94,6 +94,7 @@ function printTime() {
 //Question functions
 function checkAnswers() {
     stopTimer();
+    $("#timer").addClass("dim"); //dim the timer
 
     checked = $("#q" + qNum + " :radio:checked").val();
     //console.log("Checked answer value: " + checked);
