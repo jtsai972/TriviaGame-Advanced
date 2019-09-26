@@ -113,7 +113,7 @@ function checkAnswers() {
 
     //printing results
     $("#results h2").text(resultTxt);
-    $("#results #answer").text(answer[(qId-1)])
+    $("#results #answer").text(answers[qId-1])
 
     //show this after content is generated
     $("#results").removeClass("hide");
