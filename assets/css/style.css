@@ -113,6 +113,7 @@ h3 { font-size: 1.5em; }
             justify-content: space-between;
         }
         fieldset label {
+            line-height: 1.5em;
             padding: 1em;
                 padding-bottom: 0;
             text-transform: capitalize;
@@ -137,9 +138,16 @@ h3 { font-size: 1.5em; }
         border-top: 1px solid #ccc;
         text-align: center;
         margin-top: 2em;
-        padding: 2em;
+        padding: 1.5em 2em;
             padding-top: 3em;
     }
+        #score h2 {
+            margin-bottom: 1rem;
+        }
+        #score p {
+            font-size: 1.2em;
+            line-height: 1.5em;
+        }
 
 
 /* Media Queries */
