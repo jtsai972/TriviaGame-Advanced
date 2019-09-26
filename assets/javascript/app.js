@@ -1,6 +1,6 @@
 //timer variables
 var timer, timerNext, isTimeUp;
-//using timeQ as base for easy reassignment
+//created two variables to avoid need to change in multiple places
 var time = timeQ = 15, // question timer in seconds
     timeQNext = 3 * 1000; // time in milliseconds
 
@@ -8,7 +8,7 @@ var time = timeQ = 15, // question timer in seconds
 var qNum = 1,
     qTotal = $("fieldset").length;
 var qId = $("#q" + qNum);
-var checked, resultTxt;
+var checked, textResult;
 var answers = [
     "Elliptical Galaxy",
     "The Boomerang Nebula",
@@ -21,7 +21,7 @@ var answers = [
 ]
 
 //score variables
-var correct = incorrect = unanswered = 0;
+var countCorrect = countIncorrect = countUnanswered = 0;
 
 $( function() {
     //When the start button is clicked
@@ -92,19 +92,30 @@ function checkAnswers() {
     stopTimer();
 
     checked = $("#q" + qNum + " :radio:checked").val();
-    //console.log("Checked answer: " + checked);
+    //console.log("Checked answer value: " + checked);
 
-    if(checked === "correct") {
-        resultTxt = "Great Job!"
-    } else if(isTimeUp === true) {
-        resultTxt = "Time is up!";
-        isTimeUp = false; //reset Time
+    var answeredNum = qId.find(":radio:checked").length;
+    //console.log("Answered:" + answeredNum);
+
+    if(answeredNum !== 1) {
+        countUnanswered++;
     } else {
-        resultTxt = "Sorry";
+        if(checked === "correct") {
+            textResult = "Great Job!"
+            countCorrect++
+        } else {
+            textResult = "Sorry";
+        }
+    }    
+
+    //setting time up
+    if (isTimeUp === true) {
+        textResult = "Time is up!";
+        isTimeUp = false; //reset Time
     }
 
     //printing results
-    $("#results h2").text(resultTxt);
+    $("#results h2").text(textResult);
     $("#results #answer").text(answers[qNum-1])
 
     //show this after content is generated
