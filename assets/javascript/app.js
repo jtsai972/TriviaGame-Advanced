@@ -1,8 +1,9 @@
 //timer variables
-var timer, timerNext, isTimeUp;
+var timer, timeOutNext, timerNext, isTimeUp;
 //created two variables to avoid need to change in multiple places
-var time = timeQ = 15, // question timer in seconds
-    timeQNext = 3 * 1000; // time in milliseconds
+var time = baseTime = 15, // question timer in seconds
+    timeNext = baseTimeNext = 3; //seconds before going to the next question
+var timeQNext = timeNext * 1000; // time in milliseconds
 
 //question variables
 var qNum = 1,
@@ -63,7 +64,7 @@ function startTimer() {
 
 function stopTimer() {
     clearInterval(timer);
-    time = timeQ;
+    time = baseTime;
 
     //hiding form
     $("form").addClass("hide");
@@ -82,7 +83,7 @@ function printTime() {
     //times up!
     if(time <= 0) {
         isTimeUp = true;
-        time = timeQ; //reset time
+        time = baseTime; //reset time
         checkAnswers();
     }
 }
@@ -127,13 +128,16 @@ function checkAnswers() {
     qNum++;
     qId = $("#q" + qNum);
 
+    //running timer
+    nextTimer();
+
     //moving to the next question
-    timerNext = setTimeout(nextQuestion, timeQNext);
+    timeOutNext = setTimeout(nextQuestion, timeQNext);
 }
 
 function nextQuestion() {
     //console.log("messing with timeouts");
-    
+
     //hide results
     $("#results").addClass("hide");
     
@@ -157,7 +161,32 @@ function nextQuestion() {
         $("#start").removeClass("hide");
     }
 
-    clearTimeout(timerNext);
+    clearInterval(timerNext);
+    clearTimeout(timeOutNext);
+}
+
+function nextTimer() {
+    //print time
+    $("#nextTime").text(timeNext);
+
+    timerNext = setInterval(
+        function() {
+            timeNext--;
+            console.log(timeNext);
+
+            //print time after the first second
+            $("#nextTime").text(timeNext);
+            
+            //times up!
+            if(timeNext <= 0) {
+                timeNext = baseTimeNext; //reset time
+            }
+        }, 1000
+    );
+}
+
+function printNextTimer() {
+    
 }
 
 
