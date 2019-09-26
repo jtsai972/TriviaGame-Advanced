@@ -2,14 +2,12 @@
 // * All these comments will go away as code gets filled in.
 //variables go somewhere up here
 
-var timer
+var timer;
 var time = 10;
 var qDone = false;
 var qTotal = ("fieldset").length;
 var qId = 1;
-var checked = $("#q" + qId + " :radio:checked"),
-    correct = $("#q" + qId + " :radio[value='correct']:checked"),
-    resultTxt = "";
+var checked, resultTxt;
 var answers = [
     "Elliptical Galaxy",
     "The Boomerang Nebula",
@@ -72,8 +70,7 @@ $( function() {
 
 //Functions go somewhere down here
 function startTimer() {
-    timer = setInterval(printTime, 1000
-    );
+    timer = setInterval(printTime, 1000);
 }
 
 function stopTimer() {
@@ -96,14 +93,19 @@ function printTime() {
     if(time < 0) {
         time = 30;
         resultTxt = "Time is up!"
-        stopTimer();
-
+        
         checkAnswers();
     }
 }
 
 function checkAnswers() {
-    if(checked === correct) {
+    stopTimer();
+
+    checked = $(":radio:checked").val();
+
+    console.log("Checked answer: " + checked);
+
+    if(checked === "correct") {
         resultTxt = "Great Job!"
     } else {
         resultTxt = "Sorry";
@@ -111,7 +113,7 @@ function checkAnswers() {
 
     //printing results
     $("#results h2").text(resultTxt);
-    $("#results answer").text(answer[qId-1])
+    $("#results #answer").text(answer[(qId-1)])
 
     //show this after content is generated
     $("#results").removeClass("hide");
