@@ -1,9 +1,8 @@
 //timer variables
-var timer, next;
-//using qTime as base for easy reassignment
-var time = qTime = 15, // question timer in seconds
-    qNextTime = 3 * 1000; // time in milliseconds
-var isTimeUp;
+var timer, timerNext, isTimeUp;
+//using timeQ as base for easy reassignment
+var time = timeQ = 15, // question timer in seconds
+    timeQNext = 3 * 1000; // time in milliseconds
 
 //question variables
 var qNum = 1,
@@ -20,6 +19,9 @@ var answers = [
     "Proxima Centauri",
     "67"
 ]
+
+//score variables
+var correct = incorrect = unanswered = 0;
 
 $( function() {
     //When the start button is clicked
@@ -61,7 +63,7 @@ function startTimer() {
 
 function stopTimer() {
     clearInterval(timer);
-    time = qTime;
+    time = timeQ;
 
     //hiding form
     $("form").addClass("hide");
@@ -80,7 +82,7 @@ function printTime() {
     //times up!
     if(time <= 0) {
         isTimeUp = true;
-        time = qTime; //reset time
+        time = timeQ; //reset time
         checkAnswers();
     }
 }
@@ -113,7 +115,7 @@ function checkAnswers() {
     qId = $("#q" + qNum);
 
     //moving to the next question
-    next = setTimeout(nextQuestion, qNextTime);
+    timerNext = setTimeout(nextQuestion, timeQNext);
 }
 
 function nextQuestion() {
@@ -135,7 +137,7 @@ function nextQuestion() {
         $("#start").removeClass("hide");
     }
 
-    clearTimeout(next);
+    clearTimeout(timerNext);
 }
 
 
