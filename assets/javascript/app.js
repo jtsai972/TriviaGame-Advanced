@@ -1,8 +1,8 @@
 //timer variables
 var timer, next;
 //using qTime as base for easy reassignment
-var time = qTime = 30, //30 seconds
-    qNextTime = 3000; // 3 seconds
+var time = qTime = 10, //30 seconds
+    qNextTime = 5000; // 5 seconds
 
 //question variables
 var qNum = 1;
@@ -76,7 +76,7 @@ function printTime() {
     $("#time").text(time);
     
     //times up!
-    if(time < 0) {
+    if(time <= 0) {
         time = qTime; //reset time
         resultTxt = "Time is up!";
         checkAnswers();
