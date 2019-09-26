@@ -7,8 +7,8 @@ var time = 10;
 var qDone = false;
 var qTotal = ("fieldset").length;
 var qId = 1;
-var checked = $(":radio:checked"),
-    correct = $(":radio[value='correct']:checked"),
+var checked = $("#q" + qId + " :radio:checked"),
+    correct = $("#q" + qId + " :radio[value='correct']:checked"),
     resultTxt = "";
 var answers = [
     "Elliptical Galaxy",
@@ -56,6 +56,17 @@ $( function() {
         //timer
         startTimer();
     });
+
+    $("form button").click( function() {
+        console.log("submitting form");
+
+        //submit form & prevent page refresh
+        $("form").submit(function(e) {
+            e.preventDefault();
+        });
+
+        checkAnswers();
+    });
 });
 
 
@@ -67,6 +78,12 @@ function startTimer() {
 
 function stopTimer() {
     clearInterval(timer);
+
+    //hiding form
+    $("form").addClass("hide");
+    //setting up last question to be hidden
+    $("#q"+qId).addClass("hide");
+    console.log("#q"+qId);
 }
 
 function printTime() {
@@ -81,12 +98,6 @@ function printTime() {
         resultTxt = "Time is up!"
         stopTimer();
 
-        //hiding form
-        $("form").addClass("hide");
-        //setting up last question to be hidden
-        $("#q"+qId).addClass("hide");
-        console.log("#q"+qId);
-
         checkAnswers();
     }
 }
@@ -95,7 +106,7 @@ function checkAnswers() {
     if(checked === correct) {
         resultTxt = "Great Job!"
     } else {
-        resultTxt = "";
+        resultTxt = "Sorry";
     }
 
     //printing results
