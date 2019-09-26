@@ -90,7 +90,7 @@ h3 { font-size: 1.5em; }
 
 /* #timer styling */
     #timer {
-        border-bottom: 1px solid #444;
+        border-bottom: 1px solid #ccc;
         font-size: 2em;
         margin: 0 auto;
         padding-bottom: 1em;
