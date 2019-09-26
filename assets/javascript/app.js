@@ -1,8 +1,9 @@
 //timer variables
 var timer, next;
 //using qTime as base for easy reassignment
-var time = qTime = 10, //30 seconds
-    qNextTime = 5000; // 5 seconds
+var time = qTime = 15, // question timer in seconds
+    qNextTime = 3 * 1000; // time in milliseconds
+var isTimeUp;
 
 //question variables
 var qNum = 1;
@@ -77,8 +78,8 @@ function printTime() {
     
     //times up!
     if(time <= 0) {
+        isTimeUp = true;
         time = qTime; //reset time
-        resultTxt = "Time is up!";
         checkAnswers();
     }
 }
@@ -92,6 +93,9 @@ function checkAnswers() {
 
     if(checked === "correct") {
         resultTxt = "Great Job!"
+    } else if(isTimeUp === true) {
+        resultTxt = "Time is up!";
+        isTimeUp = false; //reset Time
     } else {
         resultTxt = "Sorry";
     }
