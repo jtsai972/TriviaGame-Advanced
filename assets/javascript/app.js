@@ -143,9 +143,16 @@ function nextQuestion() {
         qId.removeClass("hide");
         startTimer();
     } else {
+        //print 
+        $("#correct").text(countCorrect);
+        $("#incorrect").text(countIncorrect);
+        $("#unanswered").text(countUnanswered);
+
+        //hide timer
         $("#timer").addClass("hide");
 
-        //restart
+        //display score and start bar
+        $("#score").removeClass("hide");
         $("#start").removeClass("hide");
     }
 
