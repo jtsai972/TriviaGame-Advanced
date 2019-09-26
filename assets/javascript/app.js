@@ -1,12 +1,12 @@
-// ? Comments styled with Better Comments VSCode Extension
-// * All these comments will go away as code gets filled in.
-//variables go somewhere up here
-
+//timer variables
 var timer, next;
-var time = 10;
-var qDone = false;
-var qTotal = ("fieldset").length;
-var qId = 1;
+//using qTime as base for easy reassignment
+var time = qTime = 30, //30 seconds
+    qNextTime = 3000; // 3 seconds
+
+//question variables
+var qNum = 1;
+var qId = $("#q" + qNum);
 var checked, resultTxt;
 var answers = [
     "Elliptical Galaxy",
@@ -19,28 +19,6 @@ var answers = [
     "67"
 ]
 
-// * Setup
-//ToDo: set up repeatable timer, timestop & count functions
-
-// * On Start
-//Todo: on click start, display timer, unhide form & first fieldset
-
-// * Form
-// ToDo: on click fieldset, get fieldset id for submission
-// Todo: Submit Button displays result
-
-// * Setting up results
-//Todo: h2 with "Time's up", Correct/Incorrect depending on cause
-// ? Correct answer will probably be based on :radio:checked.val() = correct; isCorrect ? correct : incorrect
-// Note to self: learn how to use ternary operators properly and find places to use them
-//ToDo: Display correct answer 
-
-//ToDo: reset timer, hide result, unhide next fieldset
-
-// * Bonus stuff
-//Todo: experiment with adding and removing classes dynamically to try to animate stuff lightly
-//ToDo: add details about answers to result based on question id i.e stuff about why moon is coldest.
-
 $( function() {
     //When the start button is clicked
     $("#start").click( function() {
@@ -50,7 +28,7 @@ $( function() {
         //unhiding
         $("#timer").removeClass("hide");
         $("#questions").removeClass("hide");
-        $("#q"+qId).removeClass("hide");
+        qId.removeClass("hide");
         
         //timer
         startTimer();
@@ -70,42 +48,47 @@ $( function() {
 });
 
 
-//Functions go somewhere down here
+// * Functions go somewhere down here
+
+//Timer functions
 function startTimer() {
+    //print the first time
+    $("#time").text(time);
     timer = setInterval(printTime, 1000);
 }
 
 function stopTimer() {
     clearInterval(timer);
+    time = qTime;
 
     //hiding form
     $("form").addClass("hide");
     //setting up last question to be hidden
-    $("#q"+qId).addClass("hide");
-    console.log("#q"+qId);
+    qId.addClass("hide");
+    //console.log(qId);
 }
 
 function printTime() {
-    //print time
-    $("#time").text(time);
-
     //countdown every second
     time--;
-            
+
+    //print time after the first second
+    $("#time").text(time);
+    
+    //times up!
     if(time < 0) {
-        time = 30;
-        resultTxt = "Time is up!"
-        
+        time = qTime; //reset time
+        resultTxt = "Time is up!";
         checkAnswers();
     }
 }
 
+//Question functions
 function checkAnswers() {
     stopTimer();
 
-    checked = $(":radio:checked").val();
-
-    console.log("Checked answer: " + checked);
+    checked = $("#q" + qNum + " :radio:checked").val();
+    //console.log("Checked answer: " + checked);
 
     if(checked === "correct") {
         resultTxt = "Great Job!"
@@ -115,25 +98,37 @@ function checkAnswers() {
 
     //printing results
     $("#results h2").text(resultTxt);
-    $("#results #answer").text(answers[qId-1])
+    $("#results #answer").text(answers[qNum-1])
 
     //show this after content is generated
     $("#results").removeClass("hide");
 
-    qId++;
+    //setting new ids
+    qNum++;
+    qId = $("#q" + qNum);
 
-    next = setTimeout(nextQuestion, 1000);
+    //moving to the next question
+    next = setTimeout(nextQuestion, qNextTime);
 }
 
 function nextQuestion() {
-    console.log("messing with timeouts");
+    //console.log("messing with timeouts");
     
     //hide results
-    $("results").addClass("hide");
+    $("#results").addClass("hide");
 
     //show next question
     $("form").removeClass("hide");
-    $("#q"+qId).removeClass("hide");
+    qId.removeClass("hide");
 
     clearTimeout(next);
+
+    startTimer();
 }
+
+
+// * Bonus stuff
+
+//Todo: experiment with adding and removing classes dynamically to try to animate stuff lightly
+
+//ToDo: add details about answers to result based on question id i.e stuff about why moon is coldest.
