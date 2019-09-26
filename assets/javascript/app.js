@@ -39,7 +39,7 @@ $( function() {
         startTimer();
 
         //Setting nextTimer text
-        $("#results .timer p").text("Next question in:");
+        $("#next-timer p").text("Next question in:");
     });
 
     //When form is submitted
@@ -126,6 +126,7 @@ function checkAnswers() {
 
     //show this after content is generated
     $("#results").removeClass("hide");
+    $("#next-timer").removeClass("hide");
 
     //setting new ids
     qNum++;
@@ -143,6 +144,7 @@ function nextQuestion() {
 
     //hide results
     $("#results").addClass("hide");
+    $("#next-timer").addClass("hide");
     
     //if there are questions left
     if(qNum < qTotal+1) {
@@ -165,7 +167,7 @@ function nextQuestion() {
     }
 
     if(qNum > qTotal-1) {
-        $("#results .timer p").text("Showing score in:");
+        $("#next-timer p").text("Showing score in:");
     }
 
     clearInterval(timerNext);

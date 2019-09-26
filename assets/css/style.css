@@ -12,7 +12,7 @@ body {
     min-height: 100vh;
 }
 /* Basic font stuff */
-h1, h2, h3, button, #timer, #answer, #score { 
+h1, h2, h3, button, .timer, #answer, #score { 
     font-family: "Vollkorn SC", Georgia, 'Times New Roman', Times, serif;
 }
 
@@ -89,11 +89,8 @@ h3 { font-size: 1.5em; }
         }
 
 /* #timer styling */
-    #timer {
-        border-bottom: 1px solid #ccc;
+    .timer {
         font-size: 2em;
-        margin: 0 auto;
-        padding-bottom: 1em;
         text-align: center;
     }
 
@@ -122,7 +119,12 @@ h3 { font-size: 1.5em; }
 
 /* #result Styling*/
     #results {
-        margin-top: 2em;
+        background: rgba(0, 0, 0, 0.5);
+        border: 1px solid #ccc;
+        border-width: 1px 0;
+        box-shadow: 0 0 8px 0 black;
+        margin: 2em auto;
+        padding: 1em;
         text-align: center;
     }
         #results p {
