@@ -2,6 +2,25 @@
 // * All these comments will go away as code gets filled in.
 //variables go somewhere up here
 
+var timer
+var time = 10;
+var qDone = false;
+var qTotal = ("fieldset").length;
+var qId = 1;
+var checked = $(":radio:checked"),
+    correct = $(":radio[value='correct']:checked"),
+    resultTxt = "";
+var answers = [
+    "Elliptical Galaxy",
+    "The Boomerang Nebula",
+    "The Virgo Constellation",
+    "13.8 billion years",
+    "75%",
+    "Red Dwarf Star",
+    "Proxima Centauri",
+    "67"
+]
+
 // * Setup
 //ToDo: set up repeatable timer, timestop & count functions
 
@@ -24,6 +43,65 @@
 //Todo: experiment with adding and removing classes dynamically to try to animate stuff lightly
 //ToDo: add details about answers to result based on question id i.e stuff about why moon is coldest.
 
+$( function() {
+    $("#start").click( function() {
+        //console.log(this);
+        $(this).addClass("hide");
+
+        //unhiding
+        $("#timer").removeClass("hide");
+        $("#questions").removeClass("hide");
+        $("#q"+qId).removeClass("hide");
+        
+        //timer
+        startTimer();
+    });
+});
+
 
 //Functions go somewhere down here
+function startTimer() {
+    timer = setInterval(printTime, 1000
+    );
+}
 
+function stopTimer() {
+    clearInterval(timer);
+}
+
+function printTime() {
+    //print time
+    $("#time").text(time);
+
+    //countdown every second
+    time--;
+            
+    if(time < 0) {
+        time = 30;
+        resultTxt = "Time is up!"
+        stopTimer();
+
+        //hiding form
+        $("form").addClass("hide");
+        //setting up last question to be hidden
+        $("#q"+qId).addClass("hide");
+        console.log("#q"+qId);
+
+        checkAnswers();
+    }
+}
+
+function checkAnswers() {
+    if(checked === correct) {
+        resultTxt = "Great Job!"
+    } else {
+        resultTxt = "";
+    }
+
+    //printing results
+    $("#results h2").text(resultTxt);
+    $("#results answer").text(answer[qId-1])
+
+    //show this after content is generated
+    $("#results").removeClass("hide");
+}
