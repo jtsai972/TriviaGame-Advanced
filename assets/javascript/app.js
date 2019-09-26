@@ -2,7 +2,7 @@
 // * All these comments will go away as code gets filled in.
 //variables go somewhere up here
 
-var timer;
+var timer, next;
 var time = 10;
 var qDone = false;
 var qTotal = ("fieldset").length;
@@ -42,6 +42,7 @@ var answers = [
 //ToDo: add details about answers to result based on question id i.e stuff about why moon is coldest.
 
 $( function() {
+    //When the start button is clicked
     $("#start").click( function() {
         //console.log(this);
         $(this).addClass("hide");
@@ -55,11 +56,12 @@ $( function() {
         startTimer();
     });
 
-    $("form button").click( function() {
+    //When form is submitted
+    $("#questions button").click( function() {
         console.log("submitting form");
 
         //submit form & prevent page refresh
-        $("form").submit(function(e) {
+        $("#questions").submit(function(e) {
             e.preventDefault();
         });
 
@@ -117,4 +119,21 @@ function checkAnswers() {
 
     //show this after content is generated
     $("#results").removeClass("hide");
+
+    qId++;
+
+    next = setTimeout(nextQuestion, 1000);
+}
+
+function nextQuestion() {
+    console.log("messing with timeouts");
+    
+    //hide results
+    $("results").addClass("hide");
+
+    //show next question
+    $("form").removeClass("hide");
+    $("#q"+qId).removeClass("hide");
+
+    clearTimeout(next);
 }
