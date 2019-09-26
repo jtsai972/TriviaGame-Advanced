@@ -8,7 +8,7 @@ body {
     color: #eee;
     display: flex;
         flex-flow: column;
-    font-family: "Roboto", Arial, Helvetica, sans-serif;
+    font-family: "Vollkorn", Georgia, 'Times New Roman', Times, serif;
     min-height: 100vh;
 }
 /* Basic font stuff */
@@ -98,8 +98,11 @@ h3 { font-size: 1.5em; }
 /* #questions Styling */
     fieldset {
         background: rgba(0, 0, 0, 0.5);
-        margin: 1em auto;
+        margin: 2em auto;
         padding: 1em;
+        border: 1px solid #ccc;
+        border-width: 1px 0;
+        box-shadow: 0 0 8px 0 black;
     }
         fieldset legend {
             float: left;
