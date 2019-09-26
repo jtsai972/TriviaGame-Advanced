@@ -6,7 +6,8 @@ var time = qTime = 15, // question timer in seconds
 var isTimeUp;
 
 //question variables
-var qNum = 1;
+var qNum = 1,
+    qTotal = $("fieldset").length;
 var qId = $("#q" + qNum);
 var checked, resultTxt;
 var answers = [
@@ -120,14 +121,21 @@ function nextQuestion() {
     
     //hide results
     $("#results").addClass("hide");
+    
+    //if there are questions left
+    if(qNum < qTotal+1) {
+        //show next question
+        $("form").removeClass("hide");
+        qId.removeClass("hide");
+        startTimer();
+    } else {
+        $("#timer").addClass("hide");
 
-    //show next question
-    $("form").removeClass("hide");
-    qId.removeClass("hide");
+        //restart
+        $("#start").removeClass("hide");
+    }
 
     clearTimeout(next);
-
-    startTimer();
 }
 
 
