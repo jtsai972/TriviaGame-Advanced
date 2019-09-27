@@ -59,9 +59,13 @@ h3 { font-size: 1.5em; }
     }
 
 /* General styling */
-    .hide { 
-        display: none; 
-        /* Test this with translate */
+    .hide, .hide * { 
+        height: 0; 
+        margin: 0 !important; 
+        opacity: 0; 
+        overflow: hidden; 
+        padding: 0 !important; 
+        transition: all ease 1s;
     }
     .dim { opacity: 0.5; }
     .easeIn {
