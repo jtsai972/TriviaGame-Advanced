@@ -107,6 +107,7 @@ h3 { font-size: 1.5em; }
         border: 1px solid #ccc;
         border-width: 1px 0;
         box-shadow: 0 0 8px 0 black;
+        transition: color ease 0.5s;
     }
         fieldset legend {
             float: left;
