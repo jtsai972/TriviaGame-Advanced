@@ -46,6 +46,8 @@ Setting up a basic github portfolio for me to add all the new stuff I'm doing. -
 ## About The Project
 This is a space trivia game with 8 questions. Each question has 30 seconds to answer the question. When the question is answered or the time runs out, the correct answer will be revealed.
 
+The demo this is based on is [Youtube - Unit #5 - Advanced Trivia HW Demo](https://www.youtube.com/watch?v=xhmmiRmxQ8Q)
+
 ### Built With
  * [Othneil Drew - Best README Template](https://github.com/othneildrew/Best-README-Template)
  * [Josh Parrett - Gallery Animation Code](https://codepen.io/JTParrett/pen/CAglw)
@@ -60,7 +62,7 @@ This is a space trivia game with 8 questions. Each question has 30 seconds to an
 ### Jasmine 
 [Github Portfolio](https://jtsai972.github.io/Github-Portfolio/) | [Website - Jtsai972.space](jtsai972.space) | [Email Me](jtsai972@gmail.com)
 
-Project Link: [https://github.com/jtsai972/Github-Portfolio](https://github.com/jtsai972/Github-Portfolio)
+Project Link: [https://github.com/jtsai972/TriviaGame-Advanced](https://github.com/jtsai972/TriviaGame-Advanced)
 
 [Back to Table of Contents](#table-of-contents)
 
@@ -74,7 +76,6 @@ Project Link: [https://github.com/jtsai972/Github-Portfolio](https://github.com/
 * [TA - Cody Clark](https://codyevanclark.com/)
 * [TA - Daniel Reynolds](https://github.com/kirplink)
 * [TA - Shawn Holcomb](https://github.com/shawnholcomb)
-* [Josh Parrett - Gallery Animation Code](https://codepen.io/JTParrett/pen/CAglw)
 
 [Back to Table of Contents](#table-of-contents)
 
